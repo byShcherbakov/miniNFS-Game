@@ -30,6 +30,10 @@ namespace WindowsFormsApp1
         private Random rand = new Random(); // Один Random для всей формы
         private System.Windows.Forms.Timer timerLoseMessage = new System.Windows.Forms.Timer();
         private bool isPausedByDamage = false;
+
+        // логика музыки 
+        private SoundPlayer backgroundSound;
+        private bool isMusicPlaying = false;
         public btn_rest()
         {   
             InitializeComponent();
@@ -69,8 +73,13 @@ namespace WindowsFormsApp1
             System.Windows.Forms.Timer blinkTimer = new System.Windows.Forms.Timer();
             blinkTimer.Interval = 100; // Частота мигания
 
+            
+            // Инициализация звука
+            backgroundSound = new SoundPlayer(@"C:\Users\shchi\OneDrive\Desktop\Home_game\sound\Smain.wav");
 
 
+            timer.Enabled = true;
+            timer.Start();
         }
         private void TimerLoseMessage_Tick(object sender, EventArgs e)
         {
@@ -82,6 +91,7 @@ namespace WindowsFormsApp1
         {
             gameOver = true;
             timer.Enabled = false; // Останов основной таймер игры
+            StopBackgroundMusic(); // Остановить музыку при завершении игры
 
             if (isWin)
             {
@@ -390,6 +400,7 @@ namespace WindowsFormsApp1
             btnRest.Visible = false;
             // запускает таймер 
             timer.Enabled = true;
+            timer.Start();
             // появляется 
             player.Visible = true;
 
@@ -418,6 +429,11 @@ namespace WindowsFormsApp1
             heart2.Visible = true;
             heart3.Visible = true;
 
+            // Возобновить музыку если она была включена
+            if (isMusicPlaying)
+            {
+                PlayBackgroundMusic();
+            }
         }
 
         private void labelCoins_Click(object sender, EventArgs e)
@@ -435,7 +451,7 @@ namespace WindowsFormsApp1
                 Stop.Visible = true;
                 
                 Stop.Text = "ПАУЗА";
-               
+                StopBackgroundMusic();
 
             }
             else
@@ -443,7 +459,10 @@ namespace WindowsFormsApp1
                 timer.Enabled = true;
                 Stop.Visible = false;
                 Stop.Text = "";
-                
+                if (isMusicPlaying) // Возобновить музыку если она была включена
+                {
+                    PlayBackgroundMusic();
+                }
 
 
 
@@ -467,19 +486,23 @@ namespace WindowsFormsApp1
 
         private void button1_Click_3(object sender, EventArgs e)
         {
-            //усл добавить sadsdsdsdsd
-            SoundPlayer Simple = new SoundPlayer(@"C:\Users\shchi\OneDrive\Desktop\Home_game\sound\Smain.wav");
-            Simple.Play();
 
-
-            if (Stop.Visible || (Labellose.Visible && btnRest.Visible) ||(Labellose.Visible && btnRest.Visible))
+            if (isMusicPlaying)
             {
-                    Simple.Stop();
+                StopBackgroundMusic();
             }
-                
-           
-            
-           
+            else
+            {
+                PlayBackgroundMusic();
+            }
+
+
+
+        }
+
+        private void Sound_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -495,6 +518,24 @@ namespace WindowsFormsApp1
         private void lose_h_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void PlayBackgroundMusic()
+        {
+            if (!isMusicPlaying)
+            {
+                backgroundSound.PlayLooping();
+                isMusicPlaying = true;
+            }
+        }
+
+        private void StopBackgroundMusic()
+        {
+            if (isMusicPlaying)
+            {
+                backgroundSound.Stop();
+                isMusicPlaying = false;
+            }
         }
     }
 }

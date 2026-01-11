@@ -303,7 +303,7 @@ namespace WindowsFormsApp1
 
             }
      
-            if (Ccoins == 1 )
+            if (Ccoins == 10 )
             {
                 // табли вин и рестарт 
                 label_win.Visible = true;

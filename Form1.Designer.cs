@@ -52,6 +52,11 @@
             this.heart3 = new System.Windows.Forms.PictureBox();
             this.heart1 = new System.Windows.Forms.PictureBox();
             this.lose_h = new System.Windows.Forms.Label();
+            this.Menu = new System.Windows.Forms.PictureBox();
+            this.Start_game = new System.Windows.Forms.Button();
+            this.Rules = new System.Windows.Forms.Button();
+            this.mainINFO = new System.Windows.Forms.TextBox();
+            this.MainMenuBack1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Red2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB2)).BeginInit();
@@ -62,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.heart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heart3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Menu)).BeginInit();
             this.SuspendLayout();
             // 
             // backgroundWorker1
@@ -150,22 +156,22 @@
             this.Labellose.AutoSize = true;
             this.Labellose.Font = new System.Drawing.Font("Microsoft YaHei", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Labellose.ForeColor = System.Drawing.Color.Red;
-            this.Labellose.Location = new System.Drawing.Point(262, 181);
+            this.Labellose.Location = new System.Drawing.Point(216, 169);
             this.Labellose.Name = "Labellose";
-            this.Labellose.Size = new System.Drawing.Size(324, 64);
+            this.Labellose.Size = new System.Drawing.Size(453, 64);
             this.Labellose.TabIndex = 6;
-            this.Labellose.Text = "GAME OVER";
+            this.Labellose.Text = "Вы проиграли !!!";
             this.Labellose.Click += new System.EventHandler(this.Labellose_Click);
             // 
             // btnRest
             // 
             this.btnRest.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnRest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnRest.Location = new System.Drawing.Point(243, 290);
+            this.btnRest.Location = new System.Drawing.Point(245, 323);
             this.btnRest.Name = "btnRest";
             this.btnRest.Size = new System.Drawing.Size(367, 44);
             this.btnRest.TabIndex = 8;
-            this.btnRest.Text = "RESTART the GAME";
+            this.btnRest.Text = "Начать заново";
             this.btnRest.UseVisualStyleBackColor = true;
             this.btnRest.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -187,9 +193,9 @@
             this.labelCoins.ForeColor = System.Drawing.Color.Red;
             this.labelCoins.Location = new System.Drawing.Point(12, 20);
             this.labelCoins.Name = "labelCoins";
-            this.labelCoins.Size = new System.Drawing.Size(190, 50);
+            this.labelCoins.Size = new System.Drawing.Size(250, 50);
             this.labelCoins.TabIndex = 10;
-            this.labelCoins.Text = "Count: 0 ";
+            this.labelCoins.Text = "Монеток: 0 ";
             this.labelCoins.Click += new System.EventHandler(this.labelCoins_Click);
             // 
             // Stop
@@ -211,14 +217,14 @@
             // 
             // Sound
             // 
-            this.Sound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.Sound.BackColor = System.Drawing.Color.RoyalBlue;
             this.Sound.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Sound.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Sound.Location = new System.Drawing.Point(731, 505);
+            this.Sound.Location = new System.Drawing.Point(731, 514);
             this.Sound.Name = "Sound";
-            this.Sound.Size = new System.Drawing.Size(75, 75);
+            this.Sound.Size = new System.Drawing.Size(97, 75);
             this.Sound.TabIndex = 14;
-            this.Sound.Text = "YES";
+            this.Sound.Text = "Звук";
             this.Sound.UseVisualStyleBackColor = false;
             this.Sound.Click += new System.EventHandler(this.button1_Click_3);
             // 
@@ -228,11 +234,11 @@
             this.label_win.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label_win.Font = new System.Drawing.Font("Microsoft YaHei UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_win.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label_win.Location = new System.Drawing.Point(133, 86);
+            this.label_win.Location = new System.Drawing.Point(142, 97);
             this.label_win.Name = "label_win";
-            this.label_win.Size = new System.Drawing.Size(641, 83);
+            this.label_win.Size = new System.Drawing.Size(552, 83);
             this.label_win.TabIndex = 15;
-            this.label_win.Text = "YOU won 10/10 !!!!!";
+            this.label_win.Text = "Вы выиграли !!!!";
             this.label_win.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // heart2
@@ -279,12 +285,71 @@
             this.lose_h.CausesValidation = false;
             this.lose_h.Font = new System.Drawing.Font("Microsoft YaHei UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lose_h.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lose_h.Location = new System.Drawing.Point(159, 119);
+            this.lose_h.Location = new System.Drawing.Point(141, 120);
             this.lose_h.Name = "lose_h";
-            this.lose_h.Size = new System.Drawing.Size(519, 86);
+            this.lose_h.Size = new System.Drawing.Size(562, 86);
             this.lose_h.TabIndex = 19;
-            this.lose_h.Text = "Потеря жизин";
+            this.lose_h.Text = "Потеря жизини";
             this.lose_h.Click += new System.EventHandler(this.lose_h_Click);
+            // 
+            // Menu
+            // 
+            this.Menu.Image = ((System.Drawing.Image)(resources.GetObject("Menu.Image")));
+            this.Menu.Location = new System.Drawing.Point(0, 0);
+            this.Menu.Name = "Menu";
+            this.Menu.Size = new System.Drawing.Size(842, 650);
+            this.Menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Menu.TabIndex = 20;
+            this.Menu.TabStop = false;
+            this.Menu.Click += new System.EventHandler(this.pictureBox2_Click_1);
+            // 
+            // Start_game
+            // 
+            this.Start_game.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Start_game.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Start_game.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.Start_game.Location = new System.Drawing.Point(334, 272);
+            this.Start_game.Name = "Start_game";
+            this.Start_game.Size = new System.Drawing.Size(181, 75);
+            this.Start_game.TabIndex = 21;
+            this.Start_game.Text = "СТАРТ";
+            this.Start_game.UseVisualStyleBackColor = false;
+            this.Start_game.Click += new System.EventHandler(this.Start_game_Click);
+            // 
+            // Rules
+            // 
+            this.Rules.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.Rules.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.Rules.Location = new System.Drawing.Point(334, 363);
+            this.Rules.Name = "Rules";
+            this.Rules.Size = new System.Drawing.Size(181, 43);
+            this.Rules.TabIndex = 22;
+            this.Rules.Text = "ПРАВИЛА ИГРЫ";
+            this.Rules.UseVisualStyleBackColor = true;
+            this.Rules.Click += new System.EventHandler(this.Rules_Click);
+            // 
+            // mainINFO
+            // 
+            this.mainINFO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.mainINFO.Location = new System.Drawing.Point(193, 192);
+            this.mainINFO.Multiline = true;
+            this.mainINFO.Name = "mainINFO";
+            this.mainINFO.Size = new System.Drawing.Size(476, 305);
+            this.mainINFO.TabIndex = 23;
+            this.mainINFO.Text = resources.GetString("mainINFO.Text");
+            this.mainINFO.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // MainMenuBack1
+            // 
+            this.MainMenuBack1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MainMenuBack1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.MainMenuBack1.Location = new System.Drawing.Point(368, 528);
+            this.MainMenuBack1.Name = "MainMenuBack1";
+            this.MainMenuBack1.Size = new System.Drawing.Size(116, 52);
+            this.MainMenuBack1.TabIndex = 25;
+            this.MainMenuBack1.Text = "НАЗАД";
+            this.MainMenuBack1.UseVisualStyleBackColor = true;
+            this.MainMenuBack1.Click += new System.EventHandler(this.MainMenuBack1_Click);
             // 
             // btn_rest
             // 
@@ -294,6 +359,11 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(840, 650);
+            this.Controls.Add(this.MainMenuBack1);
+            this.Controls.Add(this.mainINFO);
+            this.Controls.Add(this.Rules);
+            this.Controls.Add(this.Start_game);
+            this.Controls.Add(this.Menu);
             this.Controls.Add(this.lose_h);
             this.Controls.Add(this.heart1);
             this.Controls.Add(this.heart3);
@@ -329,6 +399,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.heart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heart3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Menu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,6 +429,11 @@
         private System.Windows.Forms.PictureBox heart3;
         private System.Windows.Forms.PictureBox heart1;
         private System.Windows.Forms.Label lose_h;
+        private System.Windows.Forms.PictureBox Menu;
+        private System.Windows.Forms.Button Start_game;
+        private System.Windows.Forms.Button Rules;
+        private System.Windows.Forms.TextBox mainINFO;
+        private System.Windows.Forms.Button MainMenuBack1;
     }
 }
 

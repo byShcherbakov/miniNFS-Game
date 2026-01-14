@@ -34,6 +34,11 @@ namespace WindowsFormsApp1
         // логика музыки 
         private SoundPlayer backgroundSound;
         private bool isMusicPlaying = false;
+
+        //логика меню 
+        private bool MainMenu = true;
+        private bool MainMenu1 = true;
+        private bool Rules_Back = false;
         public btn_rest()
         {   
             InitializeComponent();
@@ -44,6 +49,15 @@ namespace WindowsFormsApp1
             pB2.MouseDown += MouseClickDown;
             pB2.MouseUp += MouseClickUp;
             pB2.MouseMove += MouseClickMove;
+
+
+            //меню 
+            Menu.Visible = true; //Меню ава
+            Rules.Visible = true; // Правила 
+            mainINFO.Visible = false;//Текст правил 
+            MainMenuBack1.Visible= false;//назад кнопка в меню( в правилаХ)
+            
+
 
             // не будет видна надпись 
             Labellose.Visible = false;  // поигрыш 
@@ -75,11 +89,11 @@ namespace WindowsFormsApp1
 
             
             // Инициализация звука
-            backgroundSound = new SoundPlayer(@"C:\Users\shchi\OneDrive\Desktop\Home_game\sound\Smain.wav");
+            backgroundSound = new SoundPlayer(@"C:\Users\shchi\OneDrive\Desktop\addNew13\sound\Smain.wav");
 
 
-            timer.Enabled = true;
-            timer.Start();
+            timer.Enabled = false;
+           
         }
         private void TimerLoseMessage_Tick(object sender, EventArgs e)
         {
@@ -256,7 +270,7 @@ namespace WindowsFormsApp1
                         break;
                     case 3: // дописать логику !!!!!!!!!
                         heart3.Visible = false;
-                        lose_h.Visible = true;
+                        
                         timer.Enabled = false;
                         GameOver(false); // Завершаем игру поражением
                         break;
@@ -303,7 +317,7 @@ namespace WindowsFormsApp1
 
             }
      
-            if (Ccoins == 10 )
+            if (Ccoins == 10)
             {
                 // табли вин и рестарт 
                 label_win.Visible = true;
@@ -315,7 +329,7 @@ namespace WindowsFormsApp1
                 gameOver = true; // Завершение игры
 
                 
-                SoundPlayer Simple_win = new SoundPlayer(@"C:\Users\shchi\OneDrive\Desktop\Home_game\sound\Win.wav");
+                SoundPlayer Simple_win = new SoundPlayer(@"C:\Users\shchi\OneDrive\Desktop\addNew13\sound\Win.wav");
                 Simple_win.Play();
                 
             }
@@ -346,7 +360,7 @@ namespace WindowsFormsApp1
                 return;
             }
              
-
+            //
             if ((e.KeyCode == Keys.Left || e.KeyCode == Keys.A) && player.Left > 140)
             {
                 player.Left -= speed;
@@ -536,6 +550,73 @@ namespace WindowsFormsApp1
                 backgroundSound.Stop();
                 isMusicPlaying = false;
             }
+        }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        //МЕНЮ 
+
+        //старт
+        private void Start_game_Click(object sender, EventArgs e)
+        {
+
+            if (MainMenu)
+            {
+                //убирается меню полностью при старте игры
+                Menu.Visible = false;
+                Start_game.Visible= false;
+                Rules.Visible = false;
+
+                timer.Enabled = true;
+                timer.Start();
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void back_menu_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void MainMenuBack1_Click(object sender, EventArgs e)
+        {
+            
+            if(MainMenu1)
+            {
+                mainINFO.Visible = false;    //Текст
+                MainMenuBack1.Visible = false;  //назад
+
+
+                Start_game.Visible = true;  //Старт
+                Rules.Visible = true;     //Правила
+            }
+        }
+
+        private void Rules_Click(object sender, EventArgs e)
+        {
+            if (!Rules_Back)
+            {
+
+                mainINFO.Visible = true;       //Текст
+                MainMenuBack1.Visible = true; //назад
+
+
+                Start_game.Visible = false;   //Старт
+                Rules.Visible = false;       //Правила
+            }
+            
         }
     }
 }

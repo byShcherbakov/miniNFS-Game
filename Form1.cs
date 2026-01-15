@@ -37,8 +37,10 @@ namespace WindowsFormsApp1
 
         //логика меню 
         private bool MainMenu = true;
-        private bool MainMenu1 = true;
+        private bool MainMenu1 = false;
+        private bool logMainMenu1 = false;
         private bool Rules_Back = false;
+
         public btn_rest()
         {   
             InitializeComponent();
@@ -57,6 +59,8 @@ namespace WindowsFormsApp1
             mainINFO.Visible = false;//Текст правил 
             MainMenuBack1.Visible= false;//назад кнопка в меню( в правилаХ)
             
+            //кнопка в меню 
+            log_menu.Visible= false;
 
 
             // не будет видна надпись 
@@ -569,7 +573,7 @@ namespace WindowsFormsApp1
                 Menu.Visible = false;
                 Start_game.Visible= false;
                 Rules.Visible = false;
-
+                log_menu.Visible = true;
                 timer.Enabled = true;
                 timer.Start();
             }
@@ -593,7 +597,7 @@ namespace WindowsFormsApp1
         private void MainMenuBack1_Click(object sender, EventArgs e)
         {
             
-            if(MainMenu1)
+            if(!MainMenu1)
             {
                 mainINFO.Visible = false;    //Текст
                 MainMenuBack1.Visible = false;  //назад
@@ -606,6 +610,7 @@ namespace WindowsFormsApp1
 
         private void Rules_Click(object sender, EventArgs e)
         {
+
             if (!Rules_Back)
             {
 
@@ -617,6 +622,27 @@ namespace WindowsFormsApp1
                 Rules.Visible = false;       //Правила
             }
             
+        }
+
+        private void log_menu_Click(object sender, EventArgs e)
+        {
+            if (!logMainMenu1)
+            {
+                // табли вин и рестарт 
+               
+                lose = true;
+                Stop.Visible = false;
+                gameOver = false;
+                timer.Enabled = false;
+                gameOver = true; // Завершение игры
+                backgroundSound.Stop();
+
+                //Меню
+                Start_game.Visible = true;  //Старт
+                Rules.Visible = true;     //Правила
+                Menu.Visible = true;
+
+            }
         }
     }
 }

@@ -57,6 +57,7 @@
             this.Rules = new System.Windows.Forms.Button();
             this.mainINFO = new System.Windows.Forms.TextBox();
             this.MainMenuBack1 = new System.Windows.Forms.Button();
+            this.log_menu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Red2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB2)).BeginInit();
@@ -220,7 +221,7 @@
             this.Sound.BackColor = System.Drawing.Color.RoyalBlue;
             this.Sound.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Sound.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Sound.Location = new System.Drawing.Point(731, 514);
+            this.Sound.Location = new System.Drawing.Point(731, 515);
             this.Sound.Name = "Sound";
             this.Sound.Size = new System.Drawing.Size(97, 75);
             this.Sound.TabIndex = 14;
@@ -351,6 +352,19 @@
             this.MainMenuBack1.UseVisualStyleBackColor = true;
             this.MainMenuBack1.Click += new System.EventHandler(this.MainMenuBack1_Click);
             // 
+            // log_menu
+            // 
+            this.log_menu.BackColor = System.Drawing.Color.RoyalBlue;
+            this.log_menu.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold);
+            this.log_menu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.log_menu.Location = new System.Drawing.Point(12, 515);
+            this.log_menu.Name = "log_menu";
+            this.log_menu.Size = new System.Drawing.Size(117, 75);
+            this.log_menu.TabIndex = 26;
+            this.log_menu.Text = "МЕНЮ";
+            this.log_menu.UseVisualStyleBackColor = false;
+            this.log_menu.Click += new System.EventHandler(this.log_menu_Click);
+            // 
             // btn_rest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,6 +373,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(840, 650);
+            this.Controls.Add(this.log_menu);
             this.Controls.Add(this.MainMenuBack1);
             this.Controls.Add(this.mainINFO);
             this.Controls.Add(this.Rules);
@@ -434,6 +449,7 @@
         private System.Windows.Forms.Button Rules;
         private System.Windows.Forms.TextBox mainINFO;
         private System.Windows.Forms.Button MainMenuBack1;
+        private System.Windows.Forms.Button log_menu;
     }
 }
 
